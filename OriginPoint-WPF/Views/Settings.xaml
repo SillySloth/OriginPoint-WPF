@@ -1,0 +1,142 @@
+﻿<Window x:Class="OriginPoint_WPF.Views.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OriginPoint_WPF.Views"
+        mc:Ignorable="d"
+        Height="550" Width="250"
+        WindowStyle="None" ResizeMode="NoResize"  
+        AllowsTransparency="True" Background="{x:Null}" 
+        FontFamily="Bahnschrift SemiCondensed" FontSize="13">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Speech bubble and background -->
+        <Border Background="White"
+                BorderBrush="Black"
+                BorderThickness="2"
+                CornerRadius="5"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="530" Width="250" />
+        <!-- Top polygon covers the border of the bottom one -do not delete -->
+        <Polygon Grid.Row="0" Points="5,0 20,0 5,20" Fill="White"  Margin="6,0,0,-14" VerticalAlignment="Bottom"/>
+        <Polygon Grid.Row="1" Points="5,0 20,0 5,20" Fill="White" Stroke="Black" VerticalAlignment="Bottom" StrokeThickness="2" Margin="5,0,0,0"/>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10,5,10,5">
+            <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                    <Image Source="/Resources/Icons/settings.ico" Height="16" Margin="0,0,5,0"/>
+                    
+                    <TextBlock Text="Settings"  FontSize="16"/>
+                    
+                    <Button Margin="140,-10,0,0" Style="{StaticResource WindowControlButton}" Click="CloseButton_Click">
+                        <Image Source="/Resources/Icons/close.ico"/>
+                    </Button>
+                </StackPanel>
+
+                <!-- Bed Size -->
+                <TextBlock Text="Bed Size:" TextDecorations="Underline"/>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Width:"/>
+                        <TextBox Name="BedWidth" Text="3200" Style="{StaticResource InputsTextBox}"/>
+                    </StackPanel>
+
+                    <TextBlock Text="  X  " Margin="0,16,0,0"/>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Height:"/>
+                        <TextBox Name="BedHeight" Text="2030" Style="{StaticResource InputsTextBox}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Default Stock Distance from edge -->
+                <TextBlock Text="Default Stock Distance from edge:" TextDecorations="Underline" Margin="0,20,0,0"/>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Horizontal:"/>
+                        <TextBox Name="Horizontal" Text="0" Style="{StaticResource InputsTextBox}"/>
+                    </StackPanel>
+
+                    <TextBlock Text="  X  " Margin="0,16,0,0"/>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Vertical:"/>
+                        <TextBox Name="Vertical" Text="0" Style="{StaticResource InputsTextBox}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Default Print Distance from edge -->
+                <TextBlock Text="Default Print Distance from edge:" TextDecorations="Underline" Margin="0,20,0,0"/>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Horizontal:"/>
+                        <TextBox Name="PrintHorizontal" Text="25" Style="{StaticResource InputsTextBox}"/>
+                    </StackPanel>
+
+                    <TextBlock Text="  X  " Margin="0,16,0,0"/>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Vertical:"/>
+                        <TextBox Name="PrintVertical" Text="25" Style="{StaticResource InputsTextBox}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Default Vertical origin for Roll -->
+                <TextBlock Text="Default Vertical origin for Roll" TextDecorations="Underline" Margin="0,20,0,0"/>
+                <StackPanel Orientation="Horizontal" Margin="10,2.5,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Vertical:   "/>
+                        <TextBox Name="VerticalStart" Text="400" Style="{StaticResource InputsTextBox}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Allow Negative origin -->
+                <TextBlock Text="Allow Negative origin" TextDecorations="Underline" Margin="0,20,0,0"/>
+                <StackPanel Orientation="Horizontal" Margin="10,2.5,0,0">
+                    <CheckBox Content="Horizontal" Name="NegativeHorizontal" IsChecked="true" Margin="0,0,20,0"/>
+                    <CheckBox Content="Vertical" Name="NegativeVertical" IsChecked="True"/>
+                </StackPanel>
+
+                <!-- Language -->
+                <TextBlock Text="Language" TextDecorations="Underline" Margin="0,20,0,0"/>
+                <Grid  Margin="10,2.5,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <RadioButton Grid.Row="0" Grid.Column="0" Content="English" Name="English" IsChecked="True"/>
+                    <RadioButton Grid.Row="0" Grid.Column="1" Content="Spanish" Name="Spanish" Margin="20,0,0,0"/>
+                    <RadioButton Grid.Row="1" Grid.Column="0" Content="French" Name="French"/>
+                    <RadioButton Grid.Row="1" Grid.Column="1" Content="German" Name="German" Margin="20,0,0,0"/>
+                </Grid>
+
+                <!-- Default units -->
+                <TextBlock Text="Default units" TextDecorations="Underline" Margin="0,20,0,0"/>
+                <StackPanel Orientation="Horizontal" Margin="10,2.5,0,0">
+                    <RadioButton Content="Metric" Name="Metric" IsChecked="True"/>
+                    <RadioButton Content="Imperial" Name="Imperial" Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <!-- Save & cancel -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
+                    <Button Content="Save"  Height="25" Width="90" Margin="0,10,10,0" Background="LightBlue"></Button>
+                    <Button Content="Cancel"  Height="25" Width="90" Margin="10,10,0,0" Background="LightBlue" Click="CloseButton_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+
+</Window>

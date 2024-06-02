@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="OriginPoint_WPF.Views.DrawingCanvas"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OriginPoint_WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="530" d:DesignWidth="900">
+    <Grid>
+        <!-- Bordered Canvas -->
+        <Viewbox>
+            <Border BorderThickness="10" BorderBrush="Black" >
+                <Canvas Name="Artboard" Background="White"  Width="3200" Height="2030"/>
+            </Border>
+        </Viewbox>
+
+    </Grid>
+</UserControl>

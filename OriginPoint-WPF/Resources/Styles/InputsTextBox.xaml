@@ -19,7 +19,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style.Setters>
+        </Style.Setters>        
     </Style>
 
 </ResourceDictionary>

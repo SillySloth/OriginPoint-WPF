@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="OriginPoint_WPF.Views.RollToRoll"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OriginPoint_WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200"
+             Background="White">
+
+    <StackPanel Orientation="Vertical">
+        <!-- Stock input textboxes -->
+        <TextBlock Text="Roll" Margin="0,10,0,5"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Name="RollWidthTextBox" Style="{StaticResource InputsTextBox}"/>
+            <TextBlock Text="  X  " Margin="0,0,0,0"/>
+            <TextBox Name="RollHeightTextBox" Style="{StaticResource InputsTextBox}"/>
+        </StackPanel>
+
+        <!-- Print input textboxes -->
+        <TextBlock Text="Print" Margin="0,10,0,5"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Name="PrintWidthTextBox" Style="{StaticResource InputsTextBox}"/>
+            <TextBlock Text="  X  " Margin="0,0,0,0"/>
+            <TextBox Name="PrintHeightTextBox" Style="{StaticResource InputsTextBox}"/>
+        </StackPanel>
+
+        <!-- Reference point Grid, Set up as left to right for each row -->
+        <Grid HorizontalAlignment="Center" Margin="0,20,0,0">
+            <!-- x3 Rows, x3 Columns -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            
+            <RadioButton Grid.Column="0" Grid.Row="1" Style="{StaticResource GridButton}">
+                <Image Source="/Icons/gridRollEdge.ico" RenderTransformOrigin="0.5, 0.5">
+                    <Image.RenderTransform>
+                        <RotateTransform Angle="0"></RotateTransform>
+                    </Image.RenderTransform>
+                </Image>
+            </RadioButton>
+            <RadioButton Grid.Column="1" Grid.Row="1" Style="{StaticResource GridButton}" IsChecked="True">
+                <Image Source="/Icons/gridEdge.ico" RenderTransformOrigin="0.5, 0.5">
+                    <Image.RenderTransform>
+                        <RotateTransform Angle="0"></RotateTransform>
+                    </Image.RenderTransform>
+                </Image>
+            </RadioButton>
+            <RadioButton Grid.Column="2" Grid.Row="1" Style="{StaticResource GridButton}" >
+                <Image Source="/Icons/gridRollEdge.ico" RenderTransformOrigin="0.5, 0.5">
+                    <Image.RenderTransform>
+                        <RotateTransform Angle="180"></RotateTransform>
+                    </Image.RenderTransform>
+                </Image>
+            </RadioButton>
+      
+        </Grid>
+
+        <TextBlock Name="AlignmentLabel" Text="Align Center" HorizontalAlignment="Center"></TextBlock>
+
+        <!-- Origin Points -->
+        <StackPanel Orientation="Vertical" Margin="0,35,0,0">
+            <TextBlock Text="Origin points" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Horizontal" HorizontalAlignment="Center"/>
+                    <TextBox Name="HorizontalTextBox" Style="{StaticResource InputsTextBox}" TextAlignment="Center"/>
+                </StackPanel>
+
+                <TextBlock Text="  -  " Margin="0,16,0,0"/>
+
+                <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                    <TextBlock Text="Vertical" HorizontalAlignment="Center"/>
+                    <TextBox Name="VerticalTextBox" Style="{StaticResource InputsTextBox}" TextAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <Button Content="Draw"  Height="25" Width="90" Margin="0,10,0,0" Background="LightBlue" ></Button>
+
+        <StackPanel Orientation="Vertical" Margin="0,35,0,0">
+            <TextBlock Text="Remaining space:"></TextBlock>
+            <Grid Margin="15,5,0,0">
+                <!-- x4 Rows, x2 Columns -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Left:"></TextBlock>
+                <TextBox Grid.Column="2" Grid.Row="0" Name="RemainingSpaceUpper"  Style="{StaticResource InputsTextBox}" IsReadOnly="True"></TextBox>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Right:"></TextBlock>
+                <TextBox Grid.Column="2" Grid.Row="1" Name="RemainingSpaceLeft" Style="{StaticResource InputsTextBox}" IsReadOnly="True"></TextBox>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
+
+

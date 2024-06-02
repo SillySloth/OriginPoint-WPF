@@ -10,43 +10,52 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Icons\close.ico" />
-    <None Remove="Icons\gridCenter.ico" />
-    <None Remove="Icons\gridCorner.ico" />
-    <None Remove="Icons\GridEdge.ico" />
-    <None Remove="Icons\minimise.ico" />
-    <None Remove="Icons\settings.ico" />
-    <None Remove="Img\OriginPointLogo.png" />
+    <None Remove="Resources\Icons\close.ico" />
+    <None Remove="Resources\Icons\gridCenter.ico" />
+    <None Remove="Resources\Icons\gridCorner.ico" />
+    <None Remove="Resources\Icons\GridEdge.ico" />
+    <None Remove="Resources\Icons\gridRollEdge.ico" />
+    <None Remove="Resources\Icons\minimise.ico" />
+    <None Remove="Resources\Icons\settings.ico" />
+    <None Remove="Resources\Img\OriginPointLogo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Icons\close.ico">
+    <Content Include="Resources\Icons\close.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\gridCenter.ico">
+    <Content Include="Resources\Icons\gridCenter.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\gridCorner.ico">
+    <Content Include="Resources\Icons\gridCorner.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\GridEdge.ico">
+    <Content Include="Resources\Icons\GridEdge.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\minimise.ico">
+    <Content Include="Resources\Icons\gridRollEdge.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\settings.ico">
+    <Content Include="Resources\Icons\minimise.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Img\OriginPointLogo.png">
+    <Content Include="Resources\Icons\settings.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Img\OriginPointLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\FlatSheet\" />
-    <Folder Include="Views\Settings\" />
-    <Folder Include="Views\RollToRoll\" />
+    <Page Update="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+
+	<ItemGroup>
+    <Folder Include="Controller\" />
   </ItemGroup>
 
 </Project>
