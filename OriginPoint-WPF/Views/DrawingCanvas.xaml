@@ -10,7 +10,7 @@
         <!-- Bordered Canvas -->
         <Viewbox>
             <Border BorderThickness="10" BorderBrush="Black" >
-                <Canvas Name="Artboard" Background="White"  Width="3200" Height="2030"/>
+                <Canvas x:Name="drawingCanvas" Background="White"  Width="3200" Height="2030"/>
             </Border>
         </Viewbox>
 

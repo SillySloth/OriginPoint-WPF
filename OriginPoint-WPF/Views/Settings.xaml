@@ -1,4 +1,4 @@
-﻿<Window x:Class="OriginPoint_WPF.Views.Settings"
+﻿    <Window x:Class="OriginPoint_WPF.Views.Settings"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -28,17 +28,17 @@
         <Polygon Grid.Row="0" Points="5,0 20,0 5,20" Fill="White"  Margin="6,0,0,-14" VerticalAlignment="Bottom"/>
         <Polygon Grid.Row="1" Points="5,0 20,0 5,20" Fill="White" Stroke="Black" VerticalAlignment="Bottom" StrokeThickness="2" Margin="5,0,0,0"/>
 
+        <Button Margin="0,0,0,0" Style="{StaticResource WindowControlButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseButton_Click">
+            <Image Source="/Resources/Icons/close.ico"/>
+        </Button>
+
         <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10,5,10,5">
             <StackPanel Orientation="Vertical" Margin="0,0,0,0">
                 
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
                     <Image Source="/Resources/Icons/settings.ico" Height="16" Margin="0,0,5,0"/>
                     
-                    <TextBlock Text="Settings"  FontSize="16"/>
-                    
-                    <Button Margin="140,-10,0,0" Style="{StaticResource WindowControlButton}" Click="CloseButton_Click">
-                        <Image Source="/Resources/Icons/close.ico"/>
-                    </Button>
+                    <TextBlock Text="Settings"  FontSize="16"/>                                      
                 </StackPanel>
 
                 <!-- Bed Size -->
@@ -118,9 +118,9 @@
                     </Grid.ColumnDefinitions>
 
                     <RadioButton Grid.Row="0" Grid.Column="0" Content="English" Name="English" IsChecked="True"/>
-                    <RadioButton Grid.Row="0" Grid.Column="1" Content="Spanish" Name="Spanish" Margin="20,0,0,0"/>
-                    <RadioButton Grid.Row="1" Grid.Column="0" Content="French" Name="French"/>
-                    <RadioButton Grid.Row="1" Grid.Column="1" Content="German" Name="German" Margin="20,0,0,0"/>
+                    <RadioButton Grid.Row="0" Grid.Column="1" Content="Español" Name="Spanish" Margin="20,0,0,0"/>
+                    <RadioButton Grid.Row="1" Grid.Column="0" Content="Français" Name="French"/>
+                    <RadioButton Grid.Row="1" Grid.Column="1" Content="Deutsch" Name="German" Margin="20,0,0,0"/>
                 </Grid>
 
                 <!-- Default units -->
@@ -132,7 +132,7 @@
 
                 <!-- Save & cancel -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
-                    <Button Content="Save"  Height="25" Width="90" Margin="0,10,10,0" Background="LightBlue"></Button>
+                    <Button Content="Save"  Height="25" Width="90" Margin="0,10,10,0" Background="LightBlue" Click="SaveButton_Click"></Button>
                     <Button Content="Cancel"  Height="25" Width="90" Margin="10,10,0,0" Background="LightBlue" Click="CloseButton_Click"></Button>
                 </StackPanel>
             </StackPanel>

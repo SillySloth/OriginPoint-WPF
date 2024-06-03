@@ -1,28 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OriginPoint_WPF.Model;
+using OriginPoint_WPF.Utilities;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace OriginPoint_WPF.Views
 {
-    /// <summary>
-    /// Interaction logic for FlatSheet.xaml
-    /// </summary>
     public partial class FlatSheet : UserControl
     {
         public FlatSheet()
+        { InitializeComponent(); }
+
+        public event EventHandler<CanvasUpdateEventArgs> CanvasUpdate;
+
+        public void DrawButton_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
+
+            var parameters = GetParameters();
+            CanvasUpdate?.Invoke(this, new CanvasUpdateEventArgs(parameters));
         }
+
+        public Parameters GetParameters()
+        {
+            return new Parameters(
+                new Parameters.StockSize(DataValidation.ParseTextBox(StockWidthTextBox), DataValidation.ParseTextBox(StockHeightTextBox)),
+                new Parameters.PrintSize(DataValidation.ParseTextBox(PrintWidthTextBox), DataValidation.ParseTextBox(PrintHeightTextBox)),
+                new Parameters.OriginPoints(DataValidation.ParseTextBox(HorizontalTextBox), DataValidation.ParseTextBox(VerticalTextBox)));
+        }
+
+        public class CanvasUpdateEventArgs : EventArgs
+        {
+            public Parameters Parameters { get; }
+
+            public CanvasUpdateEventArgs(Parameters parameters)
+            {
+                Parameters = parameters;
+            }
+        }
+
     }
 }

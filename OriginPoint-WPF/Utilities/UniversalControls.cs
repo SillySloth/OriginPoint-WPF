@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace OriginPoint_WPF.Utilities
 {
@@ -26,6 +27,6 @@ namespace OriginPoint_WPF.Utilities
             if (window != null && e.ButtonState == System.Windows.Input.MouseButtonState.Pressed)
                 window.DragMove();
 
-        }
+        }      
     }
 }

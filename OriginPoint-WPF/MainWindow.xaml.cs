@@ -1,4 +1,5 @@
-﻿using OriginPoint_WPF.Utilities;
+﻿using OriginPoint_WPF.Controllers;
+using OriginPoint_WPF.Utilities;
 using OriginPoint_WPF.Views;
 using System.Text;
 using System.Windows;
@@ -16,8 +17,12 @@ namespace OriginPoint_WPF
     public partial class MainWindow : Window
     {
         public MainWindow()
-        { InitializeComponent(); }         
+        { 
+            InitializeComponent();
+            InitializeController();
+        }         
 
+        // Buttons
         public void CloseButton_Click(object sender, RoutedEventArgs e)
         { UniversalControls.CloseWindow(this); }
         public void MinimizeButton_Click(object sender, RoutedEventArgs e)
@@ -38,6 +43,15 @@ namespace OriginPoint_WPF
             settingsWindow.Top = this.Top + 70;
 
             settingsWindow.ShowDialog();
-        }        
+        }
+
+        // Main Controller
+        private MainController mainController;
+        private void InitializeController()
+        {
+            mainController = new MainController(FlatSheetControl, DrawingCanvasControl);
+        }
+
+
     }
 }

@@ -28,5 +28,11 @@ namespace OriginPoint_WPF.Views
         {
             UniversalControls.CloseWindow(this);
         }
+        
+        public void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Save settings
+        }
+        
     }
 }

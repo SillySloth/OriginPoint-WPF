@@ -17,6 +17,7 @@
     <None Remove="Resources\Icons\gridRollEdge.ico" />
     <None Remove="Resources\Icons\minimise.ico" />
     <None Remove="Resources\Icons\settings.ico" />
+    <None Remove="Resources\Img\OrginPointLogo_BnW.png" />
     <None Remove="Resources\Img\OriginPointLogo.png" />
   </ItemGroup>
 
@@ -42,6 +43,9 @@
     <Content Include="Resources\Icons\settings.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Img\OrginPointLogo_BnW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Img\OriginPointLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -51,11 +55,12 @@
     <Page Update="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-
-
-	<ItemGroup>
-    <Folder Include="Controller\" />
+    <Page Update="Views\DrawingCanvas.xaml">
+      <Generator></Generator>
+    </Page>
+    <Page Update="Views\FlatSheet.xaml">
+      <Generator></Generator>
+    </Page>
   </ItemGroup>
 
 </Project>
