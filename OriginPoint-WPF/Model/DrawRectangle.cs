@@ -13,7 +13,7 @@ namespace OriginPoint_WPF.Model
 
         public static Rectangle PrintRectangle(Parameters.PrintSize printSize, Parameters.StockSize stockSize, Parameters.OriginPoints originPoints)
         {
-            if ((originPoints.Horizontal * 2) + printSize.Width > stockSize.Width)
+            if (originPoints.Horizontal + printSize.Width > stockSize.Width)
                 return CreateRectangle(printSize.Width, printSize.Height, Brushes.DarkRed, new SolidColorBrush(Color.FromArgb(128, 255, 0, 0)), 10);
 
             return CreateRectangle(printSize.Width, printSize.Height, Brushes.DarkGreen, Brushes.LightGreen, 10);
@@ -29,6 +29,6 @@ namespace OriginPoint_WPF.Model
                 Fill = fill,
                 StrokeThickness = thickness
             };
-        }
+        }        
     }
 }
