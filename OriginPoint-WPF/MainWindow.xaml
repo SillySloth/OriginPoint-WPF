@@ -7,21 +7,23 @@
         xmlns:views="clr-namespace:OriginPoint_WPF.Views"
         mc:Ignorable="d"
         Title="OriginPoint" 
-        Height="650" Width="1125" 
+        Height="532" Width="1020" 
         WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="DragWindow" 
         AllowsTransparency="True" Background="{x:Null}" 
         FontFamily="Bahnschrift SemiCondensed" FontSize="13">
-    
-    <Border Background="White" CornerRadius="10">
+
+    <Border Background="LightBlue" CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="30"/>
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
@@ -29,47 +31,52 @@
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
 
-            
-            <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Background="LightGray" CornerRadius="10,10,0,0"/>
+
+            <Border Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="5" Background="White" CornerRadius="10,10,10,10"/>
+
             <!-- Logo Image -->
-            <Image Source="/Resources/Img/OrginPointLogo_BnW.png" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Height="18" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Image Source="/Resources/Img/OriginPointLogo.png" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Height="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
             <!-- Window Control Buttons -->
-            <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
-                <Button Style="{StaticResource WindowControlButton}" Click="MinimizeButton_Click">
-                    <Image Source="/Resources/Icons/minimise.ico" />
+            <StackPanel Orientation="Vertical" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Right">
+                <Button Style="{StaticResource CloseButton}" Click="CloseButton_Click">
+                    <Image Source="/Resources/Icons/WindowControls/Close.png" />
                 </Button>
-                <Button Style="{StaticResource WindowControlButton}" Click="CloseButton_Click">
-                    <Image Source="/Resources/Icons/close.ico"/>
+
+                <Button Style="{StaticResource WindowControlButton}" Click="MinimizeButton_Click">
+                    <Image Source="/Resources/Icons/WindowControls/Minimize.png" />
                 </Button>
             </StackPanel>
 
-            <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource WindowControlButton}" HorizontalAlignment="Left" Click="SettingsButton_Click">
-                <Image Source="/Resources/Icons/settings.ico"/>
+            <Button Grid.Column="5" Grid.Row="3" Style="{StaticResource WindowControlButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Image Source="/Resources/Icons/WindowControls/settings.ico"/>
             </Button>
 
             <!-- Navbar and menu -->
-            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                <RadioButton Name="FlatSheetButton" Content="Flat Sheet"  Style="{StaticResource MenuSlider}" Click="FlatSheetButton_Click"
-                             IsChecked="True"/>
-                <RadioButton Name="RollToRollButton" Content="Roll To Roll" Style="{StaticResource MenuSlider}" Click="RollToRollButton_Click"/>
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Right">
+                <RadioButton Name="FlatSheetButton" Style="{StaticResource MenuTab}" Click="FlatSheetButton_Click" IsChecked="True">
+                    <Image Source="/Resources/Img/MenuTabs/FS_B.png"/>
+                </RadioButton>
+
+                <RadioButton Name="RollToRollButton" Style="{StaticResource MenuTab}" Click="RollToRollButton_Click">
+                    <Image Source="/Resources/Img/MenuTabs/RTR_B.png"/>
+                </RadioButton>
+
             </StackPanel>
 
-            <ContentControl Name="ContentArea" Grid.Column="1" Grid.Row="3">
+            <ContentControl Name="ContentArea" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
                 <ContentControl.Content>
                     <views:FlatSheet x:Name="FlatSheetControl"/>
                 </ContentControl.Content>
             </ContentControl>
 
             <!-- Bordered Content Control for DrawingCanvas -->
-            <ContentControl Name="DrawingCanvasContainer" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Margin="5,0,0,0" Padding="5">
+            <ContentControl Name="DrawingCanvasContainer" Grid.Column="4" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" HorizontalAlignment="Left" >
                 <ContentControl.Content>
                     <views:DrawingCanvas x:Name="DrawingCanvasControl"/>
                 </ContentControl.Content>
             </ContentControl>
 
-            <!-- Bed Size label -->
-            <TextBlock  Text="Bed size: 3200 x 2030" Margin="10,0,0,0" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" FontSize="15" Name="BedSizeLabel"/>
         </Grid>
     </Border>
 </Window>

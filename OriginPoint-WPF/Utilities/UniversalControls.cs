@@ -27,6 +27,8 @@ namespace OriginPoint_WPF.Utilities
             if (window != null && e.ButtonState == System.Windows.Input.MouseButtonState.Pressed)
                 window.DragMove();
 
-        }      
+        }    
+        
+        
     }
 }

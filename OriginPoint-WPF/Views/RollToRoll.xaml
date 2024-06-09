@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OriginPoint_WPF.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="200"
+             d:DesignHeight="450" d:DesignWidth="125"
              Background="White">
 
     <StackPanel Orientation="Vertical">
@@ -27,7 +27,7 @@
         </StackPanel>
 
         <!-- Reference point Grid, Set up as left to right for each row -->
-        <Grid HorizontalAlignment="Center" Margin="0,20,0,0">
+        <Grid HorizontalAlignment="Center" Margin="0,10,0,0">
             <!-- x3 Rows, x3 Columns -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -42,21 +42,21 @@
 
             
             <RadioButton Grid.Column="0" Grid.Row="1" Style="{StaticResource GridButton}">
-                <Image Source="/Resources/Icons/gridRollEdge.ico" RenderTransformOrigin="0.5, 0.5">
+                <Image Source="/Resources/Icons/AlignmentGrid/gridRollEdge.ico" RenderTransformOrigin="0.5, 0.5">
                     <Image.RenderTransform>
                         <RotateTransform Angle="0"></RotateTransform>
                     </Image.RenderTransform>
                 </Image>
             </RadioButton>
             <RadioButton Grid.Column="1" Grid.Row="1" Style="{StaticResource GridButton}" IsChecked="True">
-                <Image Source="/Resources/Icons/gridEdge.ico" RenderTransformOrigin="0.5, 0.5">
+                <Image Source="/Resources/Icons/AlignmentGrid/GridEdge.ico" RenderTransformOrigin="0.5, 0.5">
                     <Image.RenderTransform>
                         <RotateTransform Angle="0"></RotateTransform>
                     </Image.RenderTransform>
                 </Image>
             </RadioButton>
             <RadioButton Grid.Column="2" Grid.Row="1" Style="{StaticResource GridButton}" >
-                <Image Source="/Resources/Icons/gridRollEdge.ico" RenderTransformOrigin="0.5, 0.5">
+                <Image Source="/Resources/Icons/AlignmentGrid/gridRollEdge.ico" RenderTransformOrigin="0.5, 0.5">
                     <Image.RenderTransform>
                         <RotateTransform Angle="180"></RotateTransform>
                     </Image.RenderTransform>
@@ -68,7 +68,7 @@
         <TextBlock Name="AlignmentLabel" Text="Align Center" HorizontalAlignment="Center"></TextBlock>
 
         <!-- Origin Points -->
-        <StackPanel Orientation="Vertical" Margin="0,35,0,0">
+        <StackPanel Orientation="Vertical" Margin="0,15,0,0">
             <TextBlock Text="Origin points" HorizontalAlignment="Center" Margin="0,0,0,5"/>
 
             <StackPanel Orientation="Horizontal">
@@ -91,10 +91,11 @@
         <StackPanel Orientation="Vertical" Margin="0,35,0,0">
             <TextBlock Text="Remaining space:"></TextBlock>
             <Grid Margin="15,5,0,0">
-                <!-- x4 Rows, x2 Columns -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>                    
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="35"/>
@@ -102,10 +103,14 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Text="Left:"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Upper:"></TextBlock>
                 <TextBox Grid.Column="2" Grid.Row="0" Name="RemainingSpaceUpper"  Style="{StaticResource InputsTextBox}" IsReadOnly="True"></TextBox>
-                <TextBlock Grid.Column="0" Grid.Row="1" Text="Right:"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Left:"></TextBlock>
                 <TextBox Grid.Column="2" Grid.Row="1" Name="RemainingSpaceLeft" Style="{StaticResource InputsTextBox}" IsReadOnly="True"></TextBox>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Right"></TextBlock>
+                <TextBox Grid.Column="2" Grid.Row="2" Name="RemainingSpaceRight" Style="{StaticResource InputsTextBox}" IsReadOnly="True"></TextBox>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Lower:"></TextBlock>
+                <TextBox Grid.Column="2" Grid.Row="3" Name="RemainingSpaceLower" Style="{StaticResource InputsTextBox}" IsReadOnly="True"></TextBox>
             </Grid>
         </StackPanel>
     </StackPanel>

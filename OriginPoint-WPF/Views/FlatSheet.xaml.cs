@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using OriginPoint_WPF.Model;
 using OriginPoint_WPF.Utilities;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -28,15 +29,15 @@ namespace OriginPoint_WPF.Views
                 if (Enum.TryParse(button.Name, out placement))
                 {
                     Parameters parameters = Position.SetPosition(placement, stockWidth, stockHeight, printWidth, printHeight, horizontal, vertical);
-                    double[] remaingSpace = InterfaceUpdate.TextboxUpdate(parameters);
+                    double[] remainingSpace = InterfaceUpdate.TextboxUpdate(parameters);
 
-                    RemainingSpaceUpper.Text = remaingSpace[0].ToString(); 
-                    RemainingSpaceLeft.Text = remaingSpace[1].ToString(); 
-                    RemainingSpaceRight.Text = remaingSpace[2].ToString(); 
-                    RemainingSpaceLower.Text = remaingSpace[3].ToString();
+                    RemainingSpaceUpper.Text = remainingSpace[0].ToString(); 
+                    RemainingSpaceLeft.Text = remainingSpace[1].ToString(); 
+                    RemainingSpaceRight.Text = remainingSpace[2].ToString(); 
+                    RemainingSpaceLower.Text = remainingSpace[3].ToString();
                     
-                    HorizontalTextBox.Text = remaingSpace[4].ToString(); 
-                    VerticalTextBox.Text = remaingSpace[5].ToString();
+                    HorizontalTextBox.Text = remainingSpace[4].ToString(); 
+                    VerticalTextBox.Text = remainingSpace[5].ToString();
 
                     CanvasUpdate?.Invoke(this, new CanvasUpdateEventArgs(parameters));
                 }               
@@ -46,14 +47,14 @@ namespace OriginPoint_WPF.Views
                 if (Enum.TryParse(radiobutton.Name, out placement))
                 {
                     Parameters parameters = Position.SetPosition(placement, stockWidth, stockHeight, printWidth, printHeight, horizontal, vertical);
-                    double[] remaingSpace = InterfaceUpdate.TextboxUpdate(parameters);
+                    double[] remainingSpace = InterfaceUpdate.TextboxUpdate(parameters);
 
-                    RemainingSpaceUpper.Text = remaingSpace[0].ToString();
-                    RemainingSpaceLeft.Text = remaingSpace[1].ToString();
-                    RemainingSpaceRight.Text = remaingSpace[2].ToString(); 
-                    RemainingSpaceLower.Text = remaingSpace[3].ToString();
-                    HorizontalTextBox.Text = remaingSpace[4].ToString();
-                    VerticalTextBox.Text = remaingSpace[5].ToString();
+                    RemainingSpaceUpper.Text = remainingSpace[0].ToString();
+                    RemainingSpaceLeft.Text = remainingSpace[1].ToString();
+                    RemainingSpaceRight.Text = remainingSpace[2].ToString(); 
+                    RemainingSpaceLower.Text = remainingSpace[3].ToString();
+                    HorizontalTextBox.Text = remainingSpace[4].ToString();
+                    VerticalTextBox.Text = remainingSpace[5].ToString();
 
                     CanvasUpdate?.Invoke(this, new CanvasUpdateEventArgs(parameters));
                 }               
@@ -64,7 +65,7 @@ namespace OriginPoint_WPF.Views
             }
         }
 
-        public class CanvasUpdateEventArgs : EventArgs
+    public class CanvasUpdateEventArgs : EventArgs
         {
             public Parameters Parameters { get; }
 
@@ -73,6 +74,7 @@ namespace OriginPoint_WPF.Views
                 Parameters = parameters;
             }
         }
+        
 
     }
 }

@@ -6,10 +6,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/Styles/WindowControlButton.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/GridButton.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Buttons/WindowControlButton.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Buttons/GridButton.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/InputsTextBox.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/MenuSlider.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Buttons/MenuTab.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Buttons/CloseButton.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

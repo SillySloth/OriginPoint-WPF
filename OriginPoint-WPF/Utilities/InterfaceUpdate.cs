@@ -17,10 +17,6 @@ namespace OriginPoint_WPF.Utilities
                 parameters.Origin.Vertical            // Vertical origin
             };
         }
-
-        public void ColorUpdate() // maybe change accent color based on flat sheet or roll
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

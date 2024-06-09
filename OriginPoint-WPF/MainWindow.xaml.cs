@@ -18,8 +18,8 @@ namespace OriginPoint_WPF
     {
         public MainWindow()
         { 
-            InitializeComponent();
-            InitializeController();
+            InitializeComponent() ;
+            InitializeController() ;
         }         
 
         // Buttons
@@ -51,7 +51,5 @@ namespace OriginPoint_WPF
         {
             mainController = new MainController(FlatSheetControl, DrawingCanvasControl);
         }
-
-
     }
 }
